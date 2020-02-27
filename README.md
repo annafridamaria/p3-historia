@@ -1,7 +1,5 @@
-# Express Starter Project
+# P3 Historia 📚
+This is a database with a react frontend to be able to sort, filter, rate and review episodes of the podcast P3 historia.
 
-This project includes the packages and babel setup for an express server, and is just meant to make things a little simpler to get up and running with.
-
-## Getting started
-
-Install dependencies with `npm install`, then start the server by running `npm run dev`
+## Tech 🤖
+MongoDB, react
