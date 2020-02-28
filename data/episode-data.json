@@ -1,14 +1,12 @@
 [
   {
     "title": "Heliga Birgitta - Medeltida maktspelerska",
-    "released": 2020 - 02 - 20,
-    "century": [1300, 1400],
+    "released": 20200220,
+    "century": 1300,
     "description": "Om en av sin tids mest inflytelserika svenskar. En maktspelerska till profet som i en nästan textlös tid tecknar ned sin unika livsberättelse i form av gudomliga visioner.",
     "region": "Europa",
     "country": "Sverige",
-    "sources": [
-      "Den heliga Birgitta av Helge Nordahl, Heliga Birgitta av Birger Bergh, I den heliga Birgittas fotspår av Luca Cesarini, Furstinnan av Närke som blev heliga Birgitta av Hans Furuhagen, Reliker och mirakel av Lennart Jörälv"
-    ],
+    "sources": "Den heliga Birgitta av Helge Nordahl, Heliga Birgitta av Birger Bergh, I den heliga Birgittas fotspår av Luca Cesarini, Furstinnan av Närke som blev heliga Birgitta av Hans Furuhagen, Reliker och mirakel av Lennart Jörälv",
     "expert": "Eva Matsson",
     "rating": ""
   },

@@ -4,7 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import episodeData from "./data/episode-data.json";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/historia";
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/P3historia";
 mongoose
   .connect(mongoUrl, {
     useNewUrlParser: true,
@@ -24,7 +24,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const Episode = mongoose.model("Episode", {
+const Episode = mongoose.model('Episode', {
   title: {
     type: String,
     required: true
@@ -60,29 +60,6 @@ const Episode = mongoose.model("Episode", {
   }
 });
 
-// await new Episode({
-//   title: "Testisode",
-//   released: 20200227,
-//   century: 1600,
-//   description: "An episode",
-//   region: "Europe",
-//   country: "Sweden",
-//   sources: "Books",
-//   expert: "Frida",
-//   rating: 2
-// });
-// await new Episode({
-//   title: "Sarasode",
-//   released: 20190904,
-//   century: 1700,
-//   description: "An Sara episode",
-//   region: "Europe",
-//   country: "Sweden",
-//   sources: "Knowledge",
-//   expert: "sara",
-//   rating: 4
-// });
-
 // const importEpisodeData = () => {
 //   episodeData.forEach(episode => {
 //     new Episode(episode).save();
@@ -91,17 +68,16 @@ const Episode = mongoose.model("Episode", {
 
 // importEpisodeData();
 
-if (process.env.RESET_DB) {
   const seedDatabase = async () => {
-    await Episodes.deleteMany({});
+    await Episode.deleteMany({});
 
-    data.forEach(episode => {
+    episodeData.forEach(episode => {
       new Episode(episode).save();
     });
   };
 
   seedDatabase();
-}
+
 
 // Start defining your routes here
 app.get("/", (req, res) => {
@@ -109,13 +85,18 @@ app.get("/", (req, res) => {
   res.json(episodeData);
 });
 
-// app.get("/episodes", (req, res) => {
-//   try {
-//     res.json(episodeData);
-//   } catch (err) {
-//     res.status(400);
-//   }
-// });
+app.get("/episode/:id", (req, res) => {
+  const id = req.params._id
+  Episode.findOne({'_id:': id})
+  .then((results) => {
+    res.json(results);
+  }).catch((err) => {
+    res.json({message: 'Cannot find this episode', err: err});
+  });
+  // res.send("Find episodes");
+  res.json(episodeData);
+});
+
 
 // Start the server
 app.listen(port, () => {
