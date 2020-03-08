@@ -2,18 +2,19 @@
   {
     "title": "Heliga Birgitta - Medeltida maktspelerska",
     "released": 20200220,
-    "century": 1300,
+    "century": [1300, 1400],
     "description": "Om en av sin tids mest inflytelserika svenskar. En maktspelerska till profet som i en nästan textlös tid tecknar ned sin unika livsberättelse i form av gudomliga visioner.",
     "region": "Europa",
     "country": "Sverige",
     "sources": "Den heliga Birgitta av Helge Nordahl, Heliga Birgitta av Birger Bergh, I den heliga Birgittas fotspår av Luca Cesarini, Furstinnan av Närke som blev heliga Birgitta av Hans Furuhagen, Reliker och mirakel av Lennart Jörälv",
     "expert": "Eva Matsson",
-    "rating": "3"
+    "rating": "3",
+    "tags": ["Religion", "Politik"]
   },
   {
     "title": "Haile Selassie – dyrkad kejsare och hatad despot",
     "released": 20200206,
-    "century": 1900,
+    "century": [1900],
     "description": "Det här är berättelsen om Haile Selassie, den sista kejsaren av det fria Etiopien. En älskad ledare för sitt folk, dyrkad som en gud av vissa – men för andra en hatad förtryckare.",
     "region": "Afrika",
     "country": "Etiopien",
@@ -24,7 +25,7 @@
   {
     "title": "Coco Chanel – framgång till varje pris",
     "released": 20200123,
-    "century": 1900,
+    "century": [1900],
     "description": "En fattig barnhemsflicka som blev en av världens mäktigaste modeskapare. Hennes talang och genialitet lade grunden för framgången, men hon visste också att utnyttja alla situationer till sin fördel.",
     "region": "Europa",
     "country": "Frankrike",
@@ -35,7 +36,7 @@
   {
     "title": "Axel von Fersen – kärleksaffärer, revolutioner och en vrålande lynchmobb",
     "released": 20200109,
-    "century": 1700,
+    "century": [1700],
     "description": "Greven som levde i händelsernas centrum, mitt i förändringens virvelvind. Han satte hjärtan i brand – men mötte ett grymt slut när tiden och folkets ilska kom ikapp honom.",
     "region": "Europa",
     "country": "Sverige, Frankrike",
@@ -46,7 +47,7 @@
   {
     "title": "Florence Nightingale – sjukvårdsrevolutionär och supersyster",
     "released": 20191226,
-    "century": 1900,
+    "century": [1900],
     "description": "Sjuksköterskan med en vilja av järn som räddade tusentals soldatliv under de blodiga striderna i Krimkriget, men vars främsta insats var att radikalt stöpa om grunden för allt vad sjukvård hette.",
     "region": "Europa",
     "country": "Storbrittanien",
@@ -57,7 +58,7 @@
   {
     "title": "Johan III - krig, intriger och en mördad bror",
     "released": 20191212,
-    "century": 1500,
+    "century": [1500],
     "description": "Vasa-sonen som kuppade bort sitt eget kött och blod från tronen. Hans liv kantades av familjeintriger, religiösa konflikter, krig, ekonomiskt haveri och brodermord.",
     "region": "Europa",
     "country": "Sverige",
@@ -68,7 +69,7 @@
   {
     "title": "Moctezuma II - Aztekernas domedagsprofet",
     "released": 20191128,
-    "century": 1400,
+    "century": [1400],
     "description": "Den sista härskaren av det mäktiga Aztekriket. En krigsherre vars magkänsla vid mötet med de spanska conquistadorerna ledde Amerikas största civilisation rätt ner i avgrunden.",
     "region": "Sydamerika",
     "country": "Mexiko",
@@ -79,7 +80,7 @@
   {
     "title": "Maria Eleonora - drottningen som gick sin egen väg",
     "released": 20191114,
-    "century": 1600,
+    "century": [1600],
     "description": "En viljestark drottning som slukades av makthungriga män. Det som skulle blivit en strålande drottningkarriär, slutade i besvikelse, ensamhet och en dotter som vände ryggen åt allt hon stod för.",
     "region": "Europa",
     "country": "Sverige",
@@ -90,7 +91,7 @@
   {
     "title": "Kublai Khan – sex sidor av en världshärskare",
     "released": 20191031,
-    "century": 1200,
+    "century": [1200],
     "description": "Det här är berättelsen om Kublai khan, den mest framstående arvtagaren till världens största och mäktigaste rike. En man som behärskade många konster och hade allt som krävdes för jobbet.",
     "region": "Asien",
     "country": "Mongoliet",
@@ -101,7 +102,7 @@
   {
     "title": "Karin Månsdotter – pigan som blev drottning av Sverige",
     "released": 20191017,
-    "century": 1500,
+    "century": [1500],
     "description": "En osannolik klassresan från värdshuspiga till drottning, genom det mesta skandaläktenskapet i Sveriges historia. Ett äktenskap som innebar upphöjelse men också ett brutalt fall.",
     "region": "Europa",
     "country": "Sverige",
@@ -112,7 +113,7 @@
   {
     "title": "Pu Yi - Kinas siste kejsare",
     "released": 20191003,
-    "century": 1900,
+    "century": [1900],
     "description": "Regenten som började sina dagar på draktronen i kejserligt siden och överdåd, men slutade iklädd grå uniform på ett vanligt kontorsjobb – som en kinesisk medborgare bland alla andra.",
     "region": "Asien",
     "country": "Kina",
@@ -123,7 +124,7 @@
   {
     "title": "Lizzie Borden – Oskyldigt offer eller kallblodig yxmördare?",
     "released": 20190919,
-    "century": 1800,
+    "century": [1800],
     "description": "Söndagsskolelärarinnan som chockade en hel nation när hon stod anklagad för två brutala yxmord – på sina egna föräldrar.",
     "region": "Nordamerika",
     "country": "USA",

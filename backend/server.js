@@ -35,7 +35,7 @@ const Episode = mongoose.model('Episode', {
   },
   century: {
     // have to define a type? Can accept several?
-    type: Number
+    type: [Number]
   },
   description: {
     type: String,
@@ -57,6 +57,9 @@ const Episode = mongoose.model('Episode', {
   rating: {
     type: Number,
     default: 0
+  },
+  tags: {
+    type: [String]
   }
 });
 
@@ -65,19 +68,6 @@ const importEpisodeData = () => {
     new Episode(episode).save();
   });
 };
-
-// importEpisodeData();
-
-  // const seedDatabase = async () => {
-  //   await Episode.deleteMany({});
-
-  //   episodeData.forEach(episode => {
-  //     new Episode(episode).save();
-  //   });
-  // };
-
-  // seedDatabase();
-
 
 // Start defining your routes here
 app.get("/episodes", (req, res) => {
@@ -99,13 +89,13 @@ app.get('/episodes/:_id', async(req, res) => {
 
 app.get('/century/:century', async(req, res) => {
   const {century} = req.params;
-  // try {
-    const centuryEpisodes = episodeData.filter((episode) => episode.century === century)
+  try {
+    const centuryEpisodes = await Episode.find({'century': century})
     // If not json is in the response, you have to invoke a send function
     res.json(centuryEpisodes).status(201);
-  // } catch (err) {
-  //   res.status(401).json({message: 'Episode not found', error:err})
-  // }
+  } catch (err) {
+    res.status(401).json({message: 'Century not found', error:err})
+  }
 })
 
 app.get('/rating/:rating', async(req, res) => {
