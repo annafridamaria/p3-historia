@@ -4,13 +4,13 @@
     "released": 20200220,
     "century": [1300, 1400],
     "description": "Om en av sin tids mest inflytelserika svenskar. En maktspelerska till profet som i en nästan textlös tid tecknar ned sin unika livsberättelse i form av gudomliga visioner.",
-    "image": "https://static-cdn.sr.se/sida/images/5067/7b3d6dc7-d3eb-4d27-a4a6-6a8b154fccdc.png?preset=1200x675",
     "region": "Europa",
     "country": "Sverige",
     "sources": "Den heliga Birgitta av Helge Nordahl, Heliga Birgitta av Birger Bergh, I den heliga Birgittas fotspår av Luca Cesarini, Furstinnan av Närke som blev heliga Birgitta av Hans Furuhagen, Reliker och mirakel av Lennart Jörälv",
     "expert": "Eva Matsson",
-    "rating": "3",
-    "tags": ["Religion", "Politik"]
+    "tags": ["Religion", "Politik"],
+    "image": "https://static-cdn.sr.se/sida/images/5067/7b3d6dc7-d3eb-4d27-a4a6-6a8b154fccdc.png?preset=1200x675",
+    "rating": "3"
   },
   {
     "title": "Haile Selassie – dyrkad kejsare och hatad despot",
