@@ -69,6 +69,9 @@ const Episode = mongoose.model('Episode', {
   },
   tags: {
     type: [String]
+  },
+  SRurl: {
+    type: String
   }
 });
 // User using Review & Playlist
@@ -165,25 +168,44 @@ app.post("/users", async (req, res) => {
       res.status(400).json({message:'Could not create user', errors: err.errors})
   }
 });
-app.get('/user', authenticateUser)
-app.get("/user", (req, res) => {
-  // res.send("Find episodes");
-  res.json({secret: "This is a user page"});
-});
-app.get("/login", (req, res) => {
-  // res.send("Find episodes");
-  res.json({secret: "This is a user page"});
+
+app.post("/episode", async (req, res) => {
+  try {
+    const { title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink } = req.body;
+    const episode = new Episode({ title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink });
+    await episode.save()
+    res.status(201).json({id:episode._id})
+    }catch(err){
+      res.status(400).json({message:'Could not create episode ', errors: err.errors})
+  }
 });
 
-app.get("/sessions", async(req, res) => {
+app.post("/login", async(req, res) => {
   const user = await User.findOne({email: req.body.email})
   if (user && bcrypt.compareSync(req.body.password, user.password)){
     res.json({userId: user._id, accessToken: user.accessToken})
   } else {
     res.json({notFound: true})
   }
-
 });
+
+app.get('/user', authenticateUser)
+app.get("/user", (req, res) => {
+  // res.send("Find episodes");
+  res.json({secret: "This is a user page"});
+});
+
+// app.post("/sessions", async(req, res) => {
+//   console.log("Hello world")
+//   const user = await User.findOne({email: req.body.email})
+//   console.log(user, req.body)
+//   if (user && bcrypt.compareSync(req.body.password, user.password)){
+//     res.json({userId: user._id, accessToken: user.accessToken})
+//   } else {
+//     res.json({notFound: true})
+//   }
+// });
+
 
 app.get('/episodes/:_id', async(req, res) => {
   const {_id} = req.params;
