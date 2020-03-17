@@ -70,7 +70,13 @@ const Episode = mongoose.model('Episode', {
   tags: {
     type: [String]
   },
-  SRurl: {
+  weblink: {
+    type: String
+  },
+  applink: {
+    type: String
+  },
+  podcastlink: {
     type: String
   }
 });
