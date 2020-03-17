@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+// import { fetchProduct } from 'reducers/products'
 import '../components/header.css'
-// COMPONENTS
 
+// COMPONENTS
 import {HeaderSVG} from '../components/HeaderSVG.js'
 import {FilterButton} from '../components/FilterButton'
 
@@ -15,6 +17,16 @@ export const Header = () => {
     const reDirect = () => {
       history.push(`/login`);
     };
+
+    const [query, setQuery] = useState('')
+    const dispatch = useDispatch()
+
+    const handleSubmit = (value) => {
+      // event.preventDefault()
+      console.log(value)
+      // dispatch(fetchProduct(barcode))
+    }
+
   return (
       <div className="header">
         <div className="headerObjects">
@@ -23,6 +35,12 @@ export const Header = () => {
           
         </div>
         <HeaderSVG/>
+
+        <button 
+                  //  type="submit"
+                   value="haj" 
+                   onClick={handleSubmit("hajen")}
+                   >filter</button>
         <FilterButton 
         // title="Log in" onClick={ReDirect("login")}
         title="Log in" onClick={reDirect}/>

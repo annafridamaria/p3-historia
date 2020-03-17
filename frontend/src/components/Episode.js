@@ -12,7 +12,6 @@ export const Episode = ({title, description, image, century, tags }) => {
     //   }
 
     return (
-        <>
         <EpisodeBox>
             {image && <EpisodeImage src={image} alt={title}/>}
             {title && <Header1>{title}</Header1>}
@@ -26,8 +25,7 @@ export const Episode = ({title, description, image, century, tags }) => {
             {description && <ArticleShort>{description}</ArticleShort>}
             <WrapperRow>{tags && tags.map((tag) => (
             <Button>{tag}</Button>))}</WrapperRow>
-        </EpisodeBox> 
-        </>
+        </EpisodeBox>
     )
    
 }

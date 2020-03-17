@@ -9,6 +9,7 @@ import {Episode} from '../components/Episode'
 
 export const BrowseEpisodes = () => {
   const [episodes, setEpisodes] = useState([])
+  // const url = useSelector(state => state.products.product)
   const url = "http://localhost:8080/episodes"
 
   useEffect (() => {
@@ -20,7 +21,6 @@ export const BrowseEpisodes = () => {
 
 
   return (
-    <>
       <div className="episodes">
       {episodes.map((episode) => (
           <Episode
@@ -32,6 +32,5 @@ export const BrowseEpisodes = () => {
           tags={episode.tags}/>
       ))}
       </div>
-    </>
     )
   }
