@@ -6,28 +6,43 @@ export const EpisodeForm = () => {
     const [registred, setRegistered] = useState("")
     const [title, setTitle] = useState("")
     const [released, setReleased] = useState("")
-    const [century, setCentury] = useState("")
+    const [century, setCentury] = useState([])
     const [description, setDescription] = useState("")
     const [region, setRegion] = useState("")
     const [country, setCountry] = useState("")
     const [sources, setSources] = useState("")
     const [expert, setExpert] = useState("")
-    const [tags, setTags] = useState([])
     const [image, setImage] = useState("")
     const [weblink, setWeblink] = useState("")
     const [applink, setApplink] = useState("")
-    const [podcastlink, setPodcastlink] = useState("") 
+    const [podcastlink, setPodcastlink] = useState("")
+    const [kultur, setKultur] = useState(false)
+    const [monarki, setMonarki] = useState(false)
+    const [politik, setPolitik] = useState(false)
+    const [religion, setReligion] = useState(false)
+    const [vetenskap, setVetenskap] = useState(false)
+    const [tags, setTags] = useState([])
+
 
     const url = "http://localhost:8080/episode";
 
     const splitCentury = (value) => {
-        return value.split(", ")
+        var split = value.split(",");
+        var i = 0
+        for(i=0; i < split.length; ++i) {
+            parseInt(split[i]);
+        }
+        return split
     }
 
-    const pushTags = (value) => {
-        setTags = tags.push(value)
-        console.log(tags)
-    }
+    const pushTags = event => {
+        if (event.target.checked) {
+          setTags([...tags, event.target.name]);
+        } else {
+          let cleandedTags = tags.filter(tag => tag !== event.target.name);
+          setTags(cleandedTags);
+        }
+      };
 
     
 
@@ -35,11 +50,9 @@ export const EpisodeForm = () => {
         event.preventDefault()
         console.log(splitCentury(century))
         splitCentury(century)
-        // set century to .split(",")
         fetch (url, {
             method: "POST",
             body: JSON.stringify({ title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink }),
-            // body: JSON.stringify({ title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink }),
             headers: { "Content-Type": "application/json" }
         })
         .then(res => {
@@ -134,24 +147,53 @@ export const EpisodeForm = () => {
                     />
                 </Label>
                 <p>Tags</p>
-                <WrapperRow>
+                <WrapperRow
+                width={"60%"}>
                     <Checkbox 
-                        name="Monarki" 
+                        type="checkbox"
                         label="Monarki"
-                        onChange={event => setTags(event.target.value)}/>
+                        name="monarki"
+                        checked={monarki}
+                        onChange={event => {
+                          setMonarki(event.target.checked);
+                          pushTags(event);
+                        }}/>
                     <Checkbox 
-                        name="Politik" 
+                        type="checkbox"
                         label="Politik"
-                        onChange={event => setTags(event.target.value)}/>
+                        name="politik"
+                        checked={politik}
+                        onChange={event => {
+                          setPolitik(event.target.checked);
+                          pushTags(event);
+                        }}/>
                     <Checkbox 
-                        name="Kultur" 
-                        label="Kultur"
-                        onChange={event => setTags(event.target.value)}/>
+                        type="checkbox"
+                        label="Religion"
+                        name="religion"
+                        checked={religion}
+                        onChange={event => {
+                          setReligion(event.target.checked);
+                          pushTags(event);
+                        }}/>
                     <Checkbox 
-                        name="Vetenskap" 
+                        type="checkbox"
                         label="Vetenskap"
-                        value="Vetenskap"
-                        onChange={event => setTags(event.target.value)}/>
+                        name="vetenskap"
+                        checked={vetenskap}
+                        onChange={event => {
+                          setVetenskap(event.target.checked);
+                          pushTags(event);
+                        }}/>
+                    <Checkbox 
+                        type="checkbox"
+                        label="Kultur"
+                        name="kultur"
+                        checked={kultur}
+                        onChange={event => {
+                            setKultur(event.target.checked);
+                            pushTags(event);
+                        }}/>
                 </WrapperRow>
                 <Label>
                     <Input

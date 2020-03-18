@@ -39,7 +39,7 @@ export const LoginForm = () => {
     return (
         <Wrapper>
             <Form
-            width={"10%"}
+            width={"30%"}
             >
                 {authenticated && (
                     <h1>Logged in!</h1>

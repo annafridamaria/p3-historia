@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import '../components/header.css'
 
 // COMPONENTS
-import {HeaderSVG} from '../components/HeaderSVG.js'
+import {HeaderSVG} from '../images/HeaderSVG.js'
 import {FilterButton} from '../components/FilterButton'
 
 import MarieA from '../images/marieantoinette.png'
@@ -15,6 +15,7 @@ export const Header = () => {
     const history = useHistory();
   
     const reDirect = () => {
+      console.log("click")
       history.push(`/login`);
     };
 
@@ -41,9 +42,13 @@ export const Header = () => {
                    value="haj" 
                    onClick={handleSubmit("hajen")}
                    >filter</button>
-        <FilterButton 
-        // title="Log in" onClick={ReDirect("login")}
-        title="Log in" onClick={reDirect}/>
+        <FilterButton
+        title="Log in" 
+        // onClick={reDirect}
+        onClick={() => {
+          history.push('/login')
+     }}
+        />
               
         <div className="filters">
           <button 

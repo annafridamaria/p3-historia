@@ -1,5 +1,5 @@
 import React from 'react'
-import { EpisodeBox, EpisodeImage, Header1, ArticleShort, WrapperRow, Button } from "./Styled";
+import { EpisodeBox, EpisodeImage, Header1, Article, WrapperRow, Button } from "./Styled";
 
 export const Episode = ({title, description, image, century, tags }) => {
 
@@ -22,7 +22,11 @@ export const Episode = ({title, description, image, century, tags }) => {
                 </>)
             })}
             </p>
-            {description && <ArticleShort>{description}</ArticleShort>}
+            {description && 
+            <Article
+            webkitlineclamp={"6"}>
+                {description}
+            </Article>}
             <WrapperRow>{tags && tags.map((tag) => (
             <Button>{tag}</Button>))}</WrapperRow>
         </EpisodeBox>

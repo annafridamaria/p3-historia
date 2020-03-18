@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from 'react'
-import { Wrapper, WrapperRow, Form, Input, ListBox, Button } from './Styled'
+import { Wrapper, WrapperRow, Text, Form, Input, ListBox, Button } from './Styled'
 
 export const PlaylistForm = () => {
     const [title, setTitle] = useState("")
@@ -54,7 +54,7 @@ export const PlaylistForm = () => {
     return (
         <WrapperRow>
             <Wrapper
-                width={"40%"}>
+                width={"44%"}>
                 {created && (
                     <h1>Playlist added!</h1>)}
                 <Form
@@ -73,9 +73,13 @@ export const PlaylistForm = () => {
                                     onChange={event => setPlaylist(event.target.value)}
                                     height={"20px"}
                                     width={"auto"}>
-                                        <WrapperRow>
-                                            {episode.title}
+                                        <WrapperRow
+                                            width={"400px"}
+                                            height={"40px"}
+                                        >
+                                            <Text fontsize={"12px"}>{episode.title}</Text>
                                             <Button
+                                                minwidth={"30px"}
                                                 onClick={addToPlaylist(episode.id)}>
                                                     <b>+</b>
                                             </Button>
@@ -87,7 +91,7 @@ export const PlaylistForm = () => {
                 </Form>
             </Wrapper>
             <Wrapper
-                width={"40%"}>
+                width={"44%"}>
                 {created && (
                     <h1>Playlist added!</h1>
                 )}

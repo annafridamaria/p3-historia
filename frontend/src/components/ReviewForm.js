@@ -13,8 +13,6 @@ export const ReviewForm = () => {
     const url = "http://localhost:8080/episode";
     const fetchUrl = "http://localhost:8080/episodes";
 
-    const arr = [ "Hanna", "Kodjo", "Linnea"]
-
     useEffect (() => {
         console.log(fetchUrl)
         fetch(fetchUrl)
@@ -54,14 +52,15 @@ export const ReviewForm = () => {
                 {episodes.map((episode) => (
                     <option
                     key={episode._id}
-                    value={episode.title}>{episode.title}</option>
+                    value={episode.id}>{episode.title}</option>
                     ))}
                 </Select>
                 </Label>
                 <Label>
                     <TextArea
                     required
-                    width={"60%"}
+                    width={"75%"}
+                    height={"150px"}
                     type="text"
                     defaultValue="Review"
                     onChange={event => setReview(event.target.value)}
