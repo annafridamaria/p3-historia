@@ -11,6 +11,7 @@ import {RegisterForm} from './components/RegisterForm'
 import {UserPage} from './components/UserPage'
 import {EpisodeForm} from './components/EpisodeForm'
 import {PlaylistForm} from './components/PlaylistForm'
+import {ReviewForm} from './components/ReviewForm'
 
 // REDUCERS
 import { createQuery } from 'reducers/queries'
@@ -45,6 +46,9 @@ export const App = () => {
           </Route>
           <Route path="/add-playlist" exact>
             <PlaylistForm />
+          </Route>
+          <Route path="/add-review" exact>
+            <ReviewForm />
           </Route>
         </Switch>
       </BrowserRouter>

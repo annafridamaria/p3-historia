@@ -12,7 +12,7 @@ export const EpisodeForm = () => {
     const [country, setCountry] = useState("")
     const [sources, setSources] = useState("")
     const [expert, setExpert] = useState("")
-    const [tags, setTags] = useState("")
+    const [tags, setTags] = useState([])
     const [image, setImage] = useState("")
     const [weblink, setWeblink] = useState("")
     const [applink, setApplink] = useState("")
@@ -20,12 +20,26 @@ export const EpisodeForm = () => {
 
     const url = "http://localhost:8080/episode";
 
+    const splitCentury = (value) => {
+        return value.split(", ")
+    }
+
+    const pushTags = (value) => {
+        setTags = tags.push(value)
+        console.log(tags)
+    }
+
+    
+
     const handleSubmit = event => {
         event.preventDefault()
+        console.log(splitCentury(century))
+        splitCentury(century)
         // set century to .split(",")
         fetch (url, {
             method: "POST",
             body: JSON.stringify({ title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink }),
+            // body: JSON.stringify({ title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink }),
             headers: { "Content-Type": "application/json" }
         })
         .then(res => {
@@ -71,7 +85,10 @@ export const EpisodeForm = () => {
                     width={"60%"}
                     type="text"
                     defaultValue="Century"
+                    // value={this.state.value} 
+                    // onChange={set(this.value)}
                     onChange={event => setCentury(event.target.value)}
+                    // onChange={splitCentury(value)}
                     />
                 </Label>
                 <Label>
@@ -163,7 +180,6 @@ export const EpisodeForm = () => {
                     onChange={event => setApplink(event.target.value)}
                     />
                 </Label>
-
                 <Label>
                     <Input
                     required

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
-import { Wrapper, Form, Input, Button } from './Styled'
+import { Wrapper, Form, Label, Input, Button } from './Styled'
 
 export const LoginForm = () => {
     const url = "http://localhost:8080/login"
@@ -44,7 +44,15 @@ export const LoginForm = () => {
                 {authenticated && (
                     <h1>Logged in!</h1>
                 )}
-                <label>
+                <Label>
+                <select id="mySelect">
+  <option>Apple</option>
+  <option>Pear</option>
+  <option>Banana</option>
+  <option>Orange</option>
+</select>
+                </Label>
+                <Label>
                     <Input 
                     required
                     type="text" 
@@ -52,15 +60,15 @@ export const LoginForm = () => {
                     defaultValue="Email"
                     onChange={event => setEmail(event.target.value.toLowerCase())}
                     ></Input>
-                </label>
-                <label>
+                </Label>
+                <Label>
                     <Input 
                     required
                     type="Password"
                     defaultValue="Password"
                     onChange={event => setPassword(event.target.value)}
                     ></Input>
-                </label>
+                </Label>
                 <Button 
                 onClick={handleLogin}
                 >Login</Button>
