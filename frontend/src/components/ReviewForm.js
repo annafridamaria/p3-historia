@@ -1,5 +1,5 @@
-import React, { useState }from 'react'
-import { Wrapper, WrapperRow, Form, Label, Input, TextArea, Button } from './Styled'
+import React, { useState, useEffect }from 'react'
+import { Wrapper, WrapperRow, Form, Label, Input, Select, TextArea, Button } from './Styled'
 import { Checkbox } from './Library/Checkbox'
 
 export const ReviewForm = () => {
@@ -8,8 +8,19 @@ export const ReviewForm = () => {
     const [user, setUser] = useState("")
     // const [user, setUser] = useState(`${currentUser._id}`)
     const [registred, setRegistered] = useState(false)
+    const [episodes, setEpisodes] = useState([])
 
     const url = "http://localhost:8080/episode";
+    const fetchUrl = "http://localhost:8080/episodes";
+
+    const arr = [ "Hanna", "Kodjo", "Linnea"]
+
+    useEffect (() => {
+        console.log(fetchUrl)
+        fetch(fetchUrl)
+        .then(res => res.json())
+        .then(json => setEpisodes(json))
+      }, [fetchUrl])
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -33,18 +44,19 @@ export const ReviewForm = () => {
     return (
         <Wrapper>
             {registred && (
-                <h1>Episode added!</h1>
+                <h1>Review posted!</h1>
             )}
             <Form
             width={"50%"}
             >
                 <Label>
-                <select id="mySelect">
-                    <option>Apple</option>
-                    <option>Pear</option>
-                    <option>Banana</option>
-                    <option>Orange</option>
-                </select>
+                <Select>
+                {episodes.map((episode) => (
+                    <option
+                    key={episode._id}
+                    value={episode.title}>{episode.title}</option>
+                    ))}
+                </Select>
                 </Label>
                 <Label>
                     <TextArea

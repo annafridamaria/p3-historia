@@ -62,7 +62,8 @@ export const PlaylistForm = () => {
                     <p>Add episodes</p>
                     <Wrapper
                         height ={"300px"}
-                        width={"90%"}>
+                        width={"90%"}
+                        overflow={"scroll"}>
                         {episodes.map((episode) => (
                             <>
                                 <ListBox
@@ -102,7 +103,8 @@ export const PlaylistForm = () => {
                     </label>
                     <Wrapper
                         height ={"300px"}
-                        width={"90%"}>
+                        width={"90%"}
+                        overflow={"scroll"}>
                         {episodes.map((episode) => (
                             <>
                                 <ListBox

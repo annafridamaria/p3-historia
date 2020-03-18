@@ -36,7 +36,6 @@ const Episode = mongoose.model('Episode', {
     required: true
   },
   century: {
-    // have to define a type? Can accept several?
     type: [Number]
   },
   description: {

@@ -39,19 +39,11 @@ export const LoginForm = () => {
     return (
         <Wrapper>
             <Form
-            width={"30%"}
+            width={"10%"}
             >
                 {authenticated && (
                     <h1>Logged in!</h1>
                 )}
-                <Label>
-                <select id="mySelect">
-  <option>Apple</option>
-  <option>Pear</option>
-  <option>Banana</option>
-  <option>Orange</option>
-</select>
-                </Label>
                 <Label>
                     <Input 
                     required

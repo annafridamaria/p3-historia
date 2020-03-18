@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: ${props => props.flexdirection ? props.flexdirection : "column"};
-  overflow: scroll;
+  overflow: ${props => props.overflow ? props.overflow : "none"};
 
 `
 export const WrapperRow = styled.div`
@@ -87,14 +87,28 @@ export const TextArea = styled.textarea`
   height: 100px;
   width: ${props => props.width ? props.width : "auto"};
   background: none;
-  border: none;
-  border-bottom: 2px solid #f48ebd;
+  border: 1px solid #f48ebd;
+  border-bottom: 3px solid #f48ebd;
   font-size: large;
   color: #f48ebd;
 `
+export const Select = styled.select`
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  width: auto;
+  height: 30px;
+  border-radius: 15px;
+  padding: 0px 5px;
+  margin: 10px;
+  background: #f48ebd;
+  color: #fff59c;
+  border: none;
+  font-size: 15px;
+`
 export const EpisodeBox = styled.div`
     width: ${props => props.width ? props.width : "18%"};
-    height: ${props => props.width ? props.width : "30%"};
+    height: ${props => props.height ? props.height : "30%"};
     border-radius: 15px;
     padding: 10px;
     margin: 10px;
