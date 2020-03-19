@@ -12,6 +12,7 @@ import {UserPage} from './components/UserPage'
 import {EpisodeForm} from './components/EpisodeForm'
 import {PlaylistForm} from './components/PlaylistForm'
 import {ReviewForm} from './components/ReviewForm'
+import {Footer} from './components/Footer.js'
 
 // REDUCERS
 import { createQuery } from 'reducers/queries'
@@ -51,6 +52,7 @@ export const App = () => {
             <ReviewForm />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </Provider>
     )

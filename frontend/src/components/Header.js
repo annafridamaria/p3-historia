@@ -38,8 +38,7 @@ export const Header = () => {
               history.push('/login')
          }}
             >Login</Button>
-
-              
+           
         <div className="filters">
           <Button 
             onClick = {() => setUrl("http://localhost:8080/century/1500")}> 1500</Button>

@@ -22,20 +22,22 @@ export const EpisodeForm = () => {
     const [religion, setReligion] = useState(false)
     const [vetenskap, setVetenskap] = useState(false)
     const [tags, setTags] = useState([])
+    const [listOfTags, setListOfTags] = useState([])
 
 
     const url = "http://localhost:8080/episode";
 
     const splitCentury = (value) => {
-        var split = value.split(",");
-        var i = 0
-        for(i=0; i < split.length; ++i) {
-            parseInt(split[i]);
-        }
+        var split = value.split(",").map(year => {
+            const trim = year.trim()
+            return parseInt(trim)      
+            }
+        )
         return split
     }
 
     const pushTags = event => {
+        console.log(event.target.checked)
         if (event.target.checked) {
           setTags([...tags, event.target.name]);
         } else {
@@ -44,15 +46,24 @@ export const EpisodeForm = () => {
         }
       };
 
-    
+      const handleCheckbox = event => {
+          console.log("handleCheckbox")
+        if (listOfTags.includes(event.target.value)) {
+            setListOfTags(
+                listOfTags.filter(option => option !== event.target.value)
+            );
+        } else {
+            setListOfTags([...listOfTags, event.target.value]);
+        }
+    };
 
     const handleSubmit = event => {
+
         event.preventDefault()
-        console.log(splitCentury(century))
-        splitCentury(century)
+        const centuryArray = (splitCentury(century))
         fetch (url, {
             method: "POST",
-            body: JSON.stringify({ title, released, century, description, region, country, sources, expert, tags, image, weblink, applink, podcastlink }),
+            body: JSON.stringify({ title, released, century: centuryArray, description, region, country, sources, expert, tags: listOfTags, image, weblink, applink, podcastlink }),
             headers: { "Content-Type": "application/json" }
         })
         .then(res => {
@@ -150,49 +161,44 @@ export const EpisodeForm = () => {
                 <WrapperRow
                 width={"60%"}>
                     <Checkbox 
-                        type="checkbox"
                         label="Monarki"
-                        name="monarki"
-                        checked={monarki}
+                        value="Monarki"
+                        checked={listOfTags.includes("Monarki")}
                         onChange={event => {
                           setMonarki(event.target.checked);
-                          pushTags(event);
+                          handleCheckbox(event);
                         }}/>
                     <Checkbox 
-                        type="checkbox"
                         label="Politik"
-                        name="politik"
-                        checked={politik}
+                        value="Politik"
+                        checked={listOfTags.includes("Politik")}
                         onChange={event => {
                           setPolitik(event.target.checked);
-                          pushTags(event);
+                          handleCheckbox(event);
                         }}/>
                     <Checkbox 
-                        type="checkbox"
                         label="Religion"
-                        name="religion"
-                        checked={religion}
+                        value="Religion"
+                        checked={listOfTags.includes("Religion")}
                         onChange={event => {
                           setReligion(event.target.checked);
-                          pushTags(event);
+                          handleCheckbox(event);
                         }}/>
                     <Checkbox 
-                        type="checkbox"
                         label="Vetenskap"
-                        name="vetenskap"
-                        checked={vetenskap}
+                        value="Vetenskap"
+                        checked={listOfTags.includes("Vetenskap")}
                         onChange={event => {
                           setVetenskap(event.target.checked);
-                          pushTags(event);
+                          handleCheckbox(event);
                         }}/>
                     <Checkbox 
-                        type="checkbox"
                         label="Kultur"
-                        name="kultur"
-                        checked={kultur}
+                        value="Kultur"
+                        checked={listOfTags.includes("Kultur")}
                         onChange={event => {
-                            setKultur(event.target.checked);
-                            pushTags(event);
+                          setKultur(event.target.checked);
+                          handleCheckbox(event);
                         }}/>
                 </WrapperRow>
                 <Label>
