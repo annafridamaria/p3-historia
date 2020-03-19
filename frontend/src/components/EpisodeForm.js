@@ -37,7 +37,6 @@ export const EpisodeForm = () => {
     }
 
     const pushTags = event => {
-        console.log(event.target.checked)
         if (event.target.checked) {
           setTags([...tags, event.target.name]);
         } else {
@@ -47,7 +46,6 @@ export const EpisodeForm = () => {
       };
 
       const handleCheckbox = event => {
-          console.log("handleCheckbox")
         if (listOfTags.includes(event.target.value)) {
             setListOfTags(
                 listOfTags.filter(option => option !== event.target.value)

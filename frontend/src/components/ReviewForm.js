@@ -3,18 +3,17 @@ import { Wrapper, WrapperRow, Form, Label, Input, Select, TextArea, Button } fro
 import { Checkbox } from './Library/Checkbox'
 
 export const ReviewForm = () => {
-    const [episode, setEpisode] = useState("")
-    const [review, setReview] = useState("")
+    const [episodeId, setEpisodeId] = useState(0)
+    const [text, setText] = useState("")
     const [user, setUser] = useState("")
     // const [user, setUser] = useState(`${currentUser._id}`)
     const [registred, setRegistered] = useState(false)
     const [episodes, setEpisodes] = useState([])
 
-    const url = "http://localhost:8080/episode";
+    const url = "http://localhost:8080/reviews";
     const fetchUrl = "http://localhost:8080/episodes";
 
     useEffect (() => {
-        console.log(fetchUrl)
         fetch(fetchUrl)
         .then(res => res.json())
         .then(json => setEpisodes(json))
@@ -22,10 +21,10 @@ export const ReviewForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        // set century to .split(",")
+        console.log(episodeId, text)
         fetch (url, {
             method: "POST",
-            body: JSON.stringify({ episode, review, user }),
+            body: JSON.stringify({ episode: episodeId, text }),
             headers: { "Content-Type": "application/json" }
         })
         .then(res => {
@@ -48,11 +47,14 @@ export const ReviewForm = () => {
             width={"50%"}
             >
                 <Label>
-                <Select>
+                <Select
+                onChange={event => setEpisodeId(event.target.value)}
+                >
                 {episodes.map((episode) => (
                     <option
                     key={episode._id}
-                    value={episode.id}>{episode.title}</option>
+                    value={episode._id}
+                    >{episode.title}</option>
                     ))}
                 </Select>
                 </Label>
@@ -63,7 +65,7 @@ export const ReviewForm = () => {
                     height={"150px"}
                     type="text"
                     defaultValue="Review"
-                    onChange={event => setReview(event.target.value)}
+                    onChange={event => setText(event.target.value)}
                     />
                 </Label>
                 <Button 

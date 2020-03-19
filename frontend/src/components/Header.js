@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useHistory, useLocation } from 'react-router-dom'
 // import { fetchProduct } from 'reducers/products'
 import '../components/header.css'
 
@@ -11,16 +10,28 @@ import {Button} from '../components/Styled'
 import MarieA from '../images/marieantoinette.png'
 
 export const Header = () => {
-    const [url, setUrl] = useState("http://localhost:8080/episodes")
     const history = useHistory();
-
-    const [query, setQuery] = useState('')
-    const dispatch = useDispatch()
+    const location = useLocation();
 
     const handleSubmit = (value) => {
       // event.preventDefault()
-      console.log(value)
       // dispatch(fetchProduct(barcode))
+    }
+    
+    function handleButtonClick(tagName) {
+      const searchParams = new URLSearchParams(history.location.search);
+      const aldreadyHasTagOnUrl = searchParams.getAll("tags").includes(tagName);
+  
+      // Removes the query parameter makin button works like a checkbox
+      let search;
+      if (aldreadyHasTagOnUrl) {
+        search = searchParams.toString().replace(`tags=${tagName}`, "");
+      } else {
+        searchParams.append("tags", tagName);
+        search = searchParams.toString();
+      }
+  
+      history.push({ search });
     }
 
   return (
@@ -31,30 +42,37 @@ export const Header = () => {
           
         </div>
         <HeaderSVG/>
-        <Button
+        {/* {location.login && ( */}
+          <Button
             type="button"
             title="Login"
             onClick={() => {
               history.push('/login')
-         }}
-            >Login</Button>
+         }}>Login</Button>
+        {/* )} */}
+
            
         <div className="filters">
-          <Button 
-            onClick = {() => setUrl("http://localhost:8080/century/1500")}> 1500</Button>
-          
           <Button
             type="button"
-            title="Politik">Politik</Button>
+            title="Politik"
+            onClick={() => handleButtonClick("Politik")}>Politik</Button>
           <Button
             type="button"
-            title="Monarki">Monarki</Button>
+            title="Monarki"
+            onClick={() => handleButtonClick("Monarki")}>Monarki</Button>
             <Button
             type="button"
-            title="Religion">Religion</Button>
+            title="Religion"
+            onClick={() => handleButtonClick("Religion")}>Religion</Button>
             <Button
             type="button"
-            title="Vetenskap">Vetenskap</Button>
+            title="Vetenskap"
+            onClick={() => handleButtonClick("Vetenskap")}>Vetenskap</Button>
+         <Button
+         type="button"
+         title="Kultur"
+         onClick={() => handleButtonClick("Kultur")}>Kultur</Button>
         </div>
       </div>
     )
