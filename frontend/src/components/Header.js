@@ -6,18 +6,13 @@ import '../components/header.css'
 
 // COMPONENTS
 import {HeaderSVG} from '../images/HeaderSVG.js'
-import {FilterButton} from '../components/FilterButton'
+import {Button} from '../components/Styled'
 
 import MarieA from '../images/marieantoinette.png'
 
 export const Header = () => {
     const [url, setUrl] = useState("http://localhost:8080/episodes")
     const history = useHistory();
-  
-    const reDirect = () => {
-      console.log("click")
-      history.push(`/login`);
-    };
 
     const [query, setQuery] = useState('')
     const dispatch = useDispatch()
@@ -36,34 +31,31 @@ export const Header = () => {
           
         </div>
         <HeaderSVG/>
+        <Button
+            type="button"
+            title="Login"
+            onClick={() => {
+              history.push('/login')
+         }}
+            >Login</Button>
 
-        <button 
-                  //  type="submit"
-                   value="haj" 
-                   onClick={handleSubmit("hajen")}
-                   >filter</button>
-        <FilterButton
-        title="Log in" 
-        // onClick={reDirect}
-        onClick={() => {
-          history.push('/login')
-     }}
-        />
               
         <div className="filters">
-          <button 
-          onClick = {() => setUrl("http://localhost:8080/century/1500")}> 1500</button>
-          <FilterButton
-            title="Login" 
-            onClick = {reDirect}
-            />
-          <FilterButton 
-            title="Politik"/>
-          <FilterButton 
-            title="Monarki"
-            url=""/>
-          <FilterButton 
-            title="Kultur"/>
+          <Button 
+            onClick = {() => setUrl("http://localhost:8080/century/1500")}> 1500</Button>
+          
+          <Button
+            type="button"
+            title="Politik">Politik</Button>
+          <Button
+            type="button"
+            title="Monarki">Monarki</Button>
+            <Button
+            type="button"
+            title="Religion">Religion</Button>
+            <Button
+            type="button"
+            title="Vetenskap">Vetenskap</Button>
         </div>
       </div>
     )

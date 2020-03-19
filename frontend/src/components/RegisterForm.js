@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import { Wrapper, Form, Input, Button } from './Styled'
 
 export const RegisterForm = () => {
@@ -8,6 +9,7 @@ export const RegisterForm = () => {
     const [registered, setRegistered] = useState(false)
 
     const url = "http://localhost:8080/users";
+    const history = useHistory()
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -63,7 +65,13 @@ export const RegisterForm = () => {
             <Button 
             type="submit"
             onClick={handleSubmit}>Register</Button>
-            <Button>Login</Button>
+            <Button
+                type="button"
+                title="Login"
+                onClick={() => {
+                history.push('/login')
+            }}
+                >Already a user?</Button>
         </Form>
        </Wrapper>
     )

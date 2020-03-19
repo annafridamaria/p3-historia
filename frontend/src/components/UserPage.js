@@ -1,13 +1,38 @@
 import React from 'react'
-import {WrapperRow, Wrapper, Header1, ImageRound, Episode2, EpisodeBox, Article} from 'components/Styled'
+import { useHistory } from 'react-router-dom'
+import {WrapperRow, Wrapper, Button, Header1, ImageRound, Episode2, EpisodeBox, Article} from 'components/Styled'
 
 export const UserPage = () => {
+    const history = useHistory()
     return (
         <>
             <Wrapper>
                 <ImageRound src="https://miro.medium.com/fit/c/256/256/2*tVPotzlGdl-5oM4WI2Z4Ug.jpeg" alt="Frida"/>
                 <Header1>Frida</Header1>
             </Wrapper>
+            <WrapperRow>
+                <Button
+                    type="button"
+                    title="Browse episodes"
+                    onClick={() => {
+                    history.push('/')
+                }}
+                    >Browse episodes</Button>
+                <Button
+                    type="button"
+                    title="Review episodes"
+                    onClick={() => {
+                    history.push('/add-review')
+                }}
+                    >Review episodes</Button>
+                <Button
+                    type="button"
+                    title="Add episodes"
+                    onClick={() => {
+                    history.push('/add-episode')
+                }}
+                    >Add episode</Button>
+            </WrapperRow>
             <WrapperRow>
                 <Episode2>
                     <Header1>Playlists</Header1>

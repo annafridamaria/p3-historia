@@ -64,6 +64,12 @@ export const LoginForm = () => {
                 <Button 
                 onClick={handleLogin}
                 >Login</Button>
+                <Button
+                    type="button"
+                    title="Register"
+                    onClick={() => {
+                    history.push('/register')}}
+                    >Register new user</Button>
             </Form>
         </Wrapper>
     )
