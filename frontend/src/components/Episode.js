@@ -1,15 +1,7 @@
 import React from 'react'
-import { EpisodeBox, EpisodeImage, Header1, Article, WrapperRow, Button } from "./Styled";
+import { EpisodeBox, EpisodeImage, Header1, Article, Text, WrapperRow, Button } from "./Styled";
 
-export const Episode = ({title, description, image, century, tags }) => {
-
-    // const selectEpisode = () => { 
-    //     // var element = document.getElementsByClassName="episode";
-    //     // element.classList.add("selected");
-    //     // var episode = document.getElementsByClassName("episode"); 
-    //     var episode = document.getElementById('episode');
-    //         episode.classList.add('selected');
-    //   }
+export const Episode = ({title, description, image, century, tags, reviews }) => {
 
     return (
         <EpisodeBox>
@@ -27,6 +19,7 @@ export const Episode = ({title, description, image, century, tags }) => {
             webkitlineclamp={"6"}>
                 {description}
             </Article>}
+            <Text>{reviews.length} reviews</Text>
             <WrapperRow>{tags && tags.map((tag) => (
             <Button>{tag}</Button>))}</WrapperRow>
         </EpisodeBox>
