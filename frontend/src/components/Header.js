@@ -12,11 +12,6 @@ import MarieA from '../images/marieantoinette.png'
 export const Header = () => {
     const history = useHistory();
     const location = useLocation();
-
-    const handleSubmit = (value) => {
-      // event.preventDefault()
-      // dispatch(fetchProduct(barcode))
-    }
     
     function handleButtonClick(tagName) {
       const searchParams = new URLSearchParams(history.location.search);

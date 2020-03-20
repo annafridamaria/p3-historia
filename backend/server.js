@@ -4,7 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import crypto from 'crypto';
 import bcrypt from 'bcrypt-nodejs';
-import episodeData from "./data/episode-data.json";
+// import episodeData from "./data/episode-data.json";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/P3historia";
 mongoose
@@ -43,11 +43,12 @@ const Playlist = mongoose.model('Playlist', {
   }
 })
 
-const importEpisodeData = () => {
-  episodeData.forEach(episode => {
-    new Episode(episode).save();
-  });
-};
+// const epsiodeData = fetch(https://p3historia.herokuapp.com/episodes)
+// const importEpisodeData = () => {
+//   episodeData.forEach(episode => {
+//     new Episode(episode).save();
+//   });
+// };
 
 // Start defining your routes here
 // Episode using Review

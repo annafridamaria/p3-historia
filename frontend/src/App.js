@@ -1,6 +1,4 @@
-import React, { useReducer } from 'react'
-import { Provider } from 'react-redux'
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'app.css'
 // COMPONENTS
@@ -14,19 +12,8 @@ import {PlaylistForm} from './components/PlaylistForm'
 import {ReviewForm} from './components/ReviewForm'
 import {Footer} from './components/Footer.js'
 
-// REDUCERS
-import { createQuery } from 'reducers/queries'
-
-const reducer = combineReducers({
-  queries: createQuery.reducer
-})
-
-const store = configureStore({ reducer })
-
-
 export const App = () => {
   return (
-    <Provider store={store}>
       <BrowserRouter>
       <Header />
         <Switch>
@@ -52,8 +39,7 @@ export const App = () => {
             <ReviewForm />
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
-    </Provider>
     )
   }

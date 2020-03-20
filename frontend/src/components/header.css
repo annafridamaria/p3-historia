@@ -31,9 +31,16 @@
     margin-top: -70px;
 }
 svg {
-    shape-outside: polygon(292.56,705.151,732,1480.2,383.96,2563,17.694);
-    transition: shape-outside 1s;
+    /* shape-outside: polygon(292.56,705.151,732,1480.2,383.96,2563,17.694);
+    transition: shape-outside 1s; */
     width: 100%;
     height: 100%;
     fill: #f48ebd;
+}
+.footer {
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    margin-bottom: -80px;
 }
