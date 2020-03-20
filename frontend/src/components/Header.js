@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-// import { fetchProduct } from 'reducers/products'
 import '../components/header.css'
 
 // COMPONENTS
 import {HeaderSVG} from '../images/HeaderSVG.js'
-import {Button} from '../components/Styled'
+import {Button, WrapperRow} from '../components/Styled'
 
 import MarieA from '../images/marieantoinette.png'
 
@@ -37,37 +36,40 @@ export const Header = () => {
           
         </div>
         <HeaderSVG/>
-        {/* {location.login && ( */}
           <Button
             type="button"
             title="Login"
             onClick={() => {
               history.push('/login')
          }}>Login</Button>
-        {/* )} */}
-
            
         <div className="filters">
-          <Button
-            type="button"
-            title="Politik"
-            onClick={() => handleButtonClick("Politik")}>Politik</Button>
-          <Button
-            type="button"
-            title="Monarki"
-            onClick={() => handleButtonClick("Monarki")}>Monarki</Button>
+          <WrapperRow>
             <Button
-            type="button"
-            title="Religion"
-            onClick={() => handleButtonClick("Religion")}>Religion</Button>
+              type="button"
+              title="Politik"
+              onClick={() => handleButtonClick("Politik")}>Politik</Button>
             <Button
+              type="button"
+              title="Monarki"
+              onClick={() => handleButtonClick("Monarki")}>Monarki</Button>
+              <Button
+              type="button"
+              title="Religion"
+              onClick={() => handleButtonClick("Religion")}>Religion</Button>
+              <Button
+              type="button"
+              title="Vetenskap"
+              onClick={() => handleButtonClick("Vetenskap")}>Vetenskap</Button>
+          <Button
+          type="button"
+          title="Kultur"
+          onClick={() => handleButtonClick("Kultur")}>Kultur</Button>
+          </WrapperRow>
+        <Button
             type="button"
-            title="Vetenskap"
-            onClick={() => handleButtonClick("Vetenskap")}>Vetenskap</Button>
-         <Button
-         type="button"
-         title="Kultur"
-         onClick={() => handleButtonClick("Kultur")}>Kultur</Button>
+            title="Clear filters"
+            onClick={() => {history.push('/')}}>Clear filters</Button>
         </div>
       </div>
     )

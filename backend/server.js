@@ -101,14 +101,6 @@ const Episode = mongoose.model('Episode', {
   }
 });
 
-// const epsiodeData = fetch(https://p3historia.herokuapp.com/episodes)
-// const importEpisodeData = () => {
-//   episodeData.forEach(episode => {
-//     new Episode(episode).save();
-//   });
-// };
-// importEpisodeData()
-
 app.get("/episodes", async (req, res) => {
   const episodes = await Episode.find()
   res.json(episodes)
