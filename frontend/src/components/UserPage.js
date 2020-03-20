@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
-import {WrapperRow, Wrapper, Button, Header1, ImageRound, Episode2, EpisodeBox, Article} from 'components/Styled'
+import {WrapperRow, Wrapper, Form, ListBox, Text, Button, Header1, ImageRound, Episode2, Article} from 'components/Styled'
 
 export const UserPage = () => {
+    const [playlist, setPlaylist] = useState([])
+    const [episodes, setEpisodes] = useState([])
     const history = useHistory()
+    const fetchUrl = "https://p3historia.herokuapp.com/episodes";
+
+    useEffect (() => {
+        fetch(fetchUrl)
+        .then(res => res.json())
+        .then(json => setEpisodes(json))
+      }, [fetchUrl])
+      const addToPlaylist = () => {
+          return
+      }
     return (
         <>
             <Wrapper>
@@ -34,15 +46,41 @@ export const UserPage = () => {
                     >Add episode</Button>
             </WrapperRow>
             <WrapperRow>
-                <Episode2>
-                    <Header1>Playlists</Header1>
-                    <EpisodeBox
-                    width={"90%"}
-                    height={"20px"}
-                    >
-                        <p>Haile Selassie – dyrkad kejsare och hatad despot</p>
-                    </EpisodeBox>
-                </Episode2>
+            <Wrapper
+                width={"44%"}>
+                <Form
+                width={"90%"}>
+                    <p>Playlists</p>
+                    <Wrapper
+                        height ={"300px"}
+                        width={"90%"}
+                        overflow={"scroll"}>
+                        {episodes.map((episode) => (
+                            <>
+                                <ListBox
+                                    key={episode._id}
+                                    title={episode.title}
+                                    value={episode._id}
+                                    onChange={event => setPlaylist(event.target.value)}
+                                    height={"20px"}
+                                    width={"auto"}>
+                                        <WrapperRow
+                                            width={"400px"}
+                                            height={"40px"}
+                                        >
+                                            <Text fontsize={"12px"}>{episode.title}</Text>
+                                            <Button
+                                                minwidth={"30px"}
+                                                onClick={addToPlaylist(episode.id)}>
+                                                    <b>+</b>
+                                            </Button>
+                                        </WrapperRow>
+                                </ListBox>
+                            </>
+                        ))}
+                    </Wrapper>
+                </Form>
+            </Wrapper>
                 <Episode2>
                     <Header1>Reviews</Header1>
                     <Article>
