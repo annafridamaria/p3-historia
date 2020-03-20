@@ -25,7 +25,7 @@ export const EpisodeForm = () => {
     const [listOfTags, setListOfTags] = useState([])
 
 
-    const url = "http://localhost:8080/episode";
+    const url = "https://p3historia.herokuapp.com/episode";
 
     const splitCentury = (value) => {
         var split = value.split(",").map(year => {

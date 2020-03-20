@@ -6,9 +6,9 @@ export const PlaylistForm = () => {
     const [user, setUser] = useState("")
     const [playlist, setPlaylist] = useState([])
     const [created, setCreated] = useState(false)
-    const url = "http://localhost:8080/users";
+    const url = "https://p3historia.herokuapp.com/users";
 
-    const fetchUrl ="http://localhost:8080/episodes"
+    const fetchUrl ="https://p3historia.herokuapp.com/episodes"
     const [episodes, setEpisodes] = useState([])
     // const [url, setUrl] = useState("")
 

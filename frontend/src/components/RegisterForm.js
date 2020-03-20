@@ -8,7 +8,7 @@ export const RegisterForm = () => {
     const [password, setPassword] = useState("")
     const [registered, setRegistered] = useState(false)
 
-    const url = "http://localhost:8080/users";
+    const url = "https://p3historia.herokuapp.com/users";
     const history = useHistory()
 
     const handleSubmit = event => {

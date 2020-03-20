@@ -13,7 +13,7 @@ export const BrowseEpisodes = () => {
   useEffect(() => {
     async function upsateEpisodesList() {
       const searchParams = new URLSearchParams(location.search);
-      const episodesJson = await fetch("http://localhost:8080/episodes");
+      const episodesJson = await fetch("https://p3historia.herokuapp.com/episodes");
       // There are some episodes that doesnt have tags attribute.
       // In order to make things easier here I gonna filter them
       // but it would be better represent episodes without tags

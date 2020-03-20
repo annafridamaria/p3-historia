@@ -10,8 +10,8 @@ export const ReviewForm = () => {
     const [registred, setRegistered] = useState(false)
     const [episodes, setEpisodes] = useState([])
 
-    const url = "http://localhost:8080/reviews";
-    const fetchUrl = "http://localhost:8080/episodes";
+    const url = "https://p3historia.herokuapp.com/reviews";
+    const fetchUrl = "https://p3historia.herokuapp.com/episodes";
 
     useEffect (() => {
         fetch(fetchUrl)

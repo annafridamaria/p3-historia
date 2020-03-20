@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Wrapper, Form, Label, Input, Button } from './Styled'
 
 export const LoginForm = () => {
-    const url = "http://localhost:8080/login"
+    const url = "https://p3historia.herokuapp.com/login"
     const history = useHistory();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
