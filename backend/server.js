@@ -109,9 +109,9 @@ const Episode = mongoose.model('Episode', {
 // };
 // importEpisodeData()
 
-app.get("/episodes", (req, res) => {
-  // res.send("Find episodes");
-  res.json(episodeData);
+app.get("/episodes", async (req, res) => {
+  const episodes = await Episode.find()
+  res.json(episodes)
 });
 
 app.post("/episode", async (req, res) => {
